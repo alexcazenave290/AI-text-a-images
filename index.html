@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Imágenes IA</title>
+    <link rel="stylesheet" href="style.css?v1.0.3">
+</head>
+<body>
+    <div class="background-decoration">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        
+        <!-- Puntos decorativos animados -->
+        <div class="decorative-dot dot-1"></div>
+        <div class="decorative-dot dot-2"></div>
+        <div class="decorative-dot dot-3"></div>
+        <div class="decorative-dot dot-4"></div>
+        <div class="decorative-dot dot-5"></div>
+        <div class="decorative-dot dot-6"></div>
+        <div class="decorative-dot dot-7"></div>
+        <div class="decorative-dot dot-8"></div>
+        
+        <!-- Guiones/líneas decorativas animadas -->
+        <div class="decorative-line line-1"></div>
+        <div class="decorative-line line-2"></div>
+        <div class="decorative-line line-3"></div>
+        <div class="decorative-line line-4"></div>
+        <div class="decorative-line line-5"></div>
+    </div>
+    
+    <div class="main-card">
+        <div class="card-header">
+            <h1 class="title">✨ Generador de Imágenes IA</h1>
+            <p class="subtitle">Transforma tus ideas en imágenes increíbles</p>
+        </div>
+        
+        <div class="input-section">
+            <textarea 
+                id="input" 
+                class="prompt-input" 
+                placeholder="Describe la imagen que quieres generar... Ejemplo: 'Un gato astronauta flotando en el espacio'"
+            ></textarea>
+            <button id="boton" class="generate-button">
+                <span class="button-text">🎨 Generar Imagen</span>
+                <span class="button-shine"></span>
+            </button>
+        </div>
+        
+        <div class="image-card">
+            <div class="image-card-header">
+                <h3 class="image-card-title">Imagen Generada</h3>
+            </div>
+            <div id="dbz" class="image-container">
+                <div class="placeholder-message">
+                    <span class="placeholder-icon">🖼️</span>
+                    <p>Tu imagen aparecerá aquí</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=1.0.3"></script>
+</body>
+</html>
