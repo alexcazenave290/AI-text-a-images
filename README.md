@@ -1,1 +1,1 @@
-# AI-text-a-images
+To use it, you just need to place your API KEY from the AI text to image API on RapidAPI (link: https://rapidapi.com/poorav925/api/ai-text-to-image-generator-flux-free-api), and once you’ve added the key in the app.js file where it says "PON TU API KEY AQUI DE RAPIDAPI", you’ll be able to use the AI correctly and fully functional.
