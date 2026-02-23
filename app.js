@@ -34,9 +34,20 @@ async function mostrarDatos(){
         contenedor.innerHTML = '🧠 Generando imagen...';
         const response = await fetch(url, options);
         const result = await response.json(); // la API devuelve JSON
-        if (result.result.data.results[0].origin) {
+
+        // Extraer URL de imagen - la API devuelve final_result como array de objetos
+        const firstResult = result?.final_result?.[0] || result?.result?.data?.results?.[0];
+        let imageUrl = firstResult?.thumb || firstResult?.origin || firstResult?.url || 
+                       firstResult?.image || firstResult?.src;
+        // Fallback: buscar cualquier string que parezca URL de imagen en el objeto
+        if (!imageUrl && firstResult && typeof firstResult === 'object') {
+            const val = Object.values(firstResult).find(v => typeof v === 'string' && v.startsWith('http'));
+            if (val) imageUrl = val;
+        }
+
+        if (imageUrl) {
             const img = document.createElement('img');
-            img.src = result.result.data.results[0].thumb;
+            img.src = imageUrl;
             img.alt = 'Imagen generada';
             // MODIFICACIÓN: Se eliminaron los estilos inline (width y borderRadius) 
             // para que la imagen use los estilos CSS que controlan el tamaño y 
@@ -46,7 +57,9 @@ async function mostrarDatos(){
             contenedor.innerHTML = ''; // limpiar el texto anterior
             contenedor.appendChild(img);
         } else {
-            contenedor.innerHTML = '❌ No se pudo generar la imagen.';
+            // Si la estructura es diferente, mostrar en consola para depurar
+            console.log('Respuesta de la API:', result);
+            contenedor.innerHTML = '❌ No se pudo generar la imagen. Revisa la consola para más detalles.';
         }
     } catch (error) {
         console.error(error);
